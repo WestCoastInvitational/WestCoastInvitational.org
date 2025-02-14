@@ -6,6 +6,11 @@ hero:
   name: "West Coast Invitational"
 #  text: "Offseason competition for FIRST Tech Challenge"
   tagline: An annual offseason FIRST Tech Challenge competition created to highlight team's true potential and to show off what they have accomplished this year in a fun but competitive event.
+
+  image:
+    dark: /assets/v3_wci_25_whitetext.png
+    light: /assets/v3_wci_25_whitetext.png
+
   actions:
     - theme: brand
       text: Sign up!

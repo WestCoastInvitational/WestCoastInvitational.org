@@ -34,8 +34,14 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'youtube', link: 'https://www.youtube.com/@WestCoastInvitational' }
-    ]
+      { icon: 'youtube', link: 'https://www.youtube.com/@WestCoastInvitational' },
+      { icon: 'instagram', link: 'https://www.instagram.com/west.coast.invitational' },
+      { icon: 'discord', link: 'https://discord.com/invite/JmVjbpxUj3' }
+    ],
+
+    footer: {
+      copyright: 'Copyright © 2025 West Coast Invitational. Thanks to Arush Yadlapati for helping create this site.'
+    }
   },
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]]
 })

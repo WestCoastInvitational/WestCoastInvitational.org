@@ -157,6 +157,9 @@
 .VPNavBarMenuLink {
   font-size: 24px !important;
 }
+.VPSocialLink {
+  margin-left: 16px;
+}
 .VPSocialLink>span {
   height: var(--social-link-size) !important;
   width: var(--social-link-size) !important;
