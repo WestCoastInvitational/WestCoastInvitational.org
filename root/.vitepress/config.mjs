@@ -37,5 +37,5 @@ export default defineConfig({
       { icon: 'youtube', link: 'https://www.youtube.com/@WestCoastInvitational' }
     ]
   },
-  head: [['link', { rel: 'shortcut icon', href: '/assets/favicon.ico', type: 'image/x-icon' }]],
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]]
 })
