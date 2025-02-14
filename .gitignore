@@ -20,6 +20,3 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
-
-# Dev Server & Output directories
-.vitepress/
