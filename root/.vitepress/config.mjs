@@ -23,20 +23,10 @@ export default defineConfig({
       { text: 'Volunteer', link: '/volunteer' }
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
-
     socialLinks: [
       { icon: 'youtube', link: 'https://www.youtube.com/@WestCoastInvitational' },
       { icon: 'instagram', link: 'https://www.instagram.com/west.coast.invitational' },
-      { icon: 'discord', link: 'https://discord.com/invite/JmVjbpxUj3' }
+      { icon: 'discord', link: '/discord' }
     ],
 
     footer: {
