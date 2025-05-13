@@ -16,6 +16,9 @@ hero:
       text: Sign up!
       link: https://forms.gle/BikYtwEAd88kv4hr8
     - theme: alt
+      text: Schedule
+      link: /about
+    - theme: alt
       text: Learn more
       link: /about
 
