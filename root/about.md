@@ -45,6 +45,10 @@ The 2025 West Coast Invitational will happen on Sunday, June 1st, 2025 from 8am 
 | 6:30 PM                    | Venue Closes                        |
 | 6:30 PM to 7:30 PM         | Teardown                            |
 
+## Format
+- The event will follow standard Into the Deep season format, with the exception that there will be 4 alliances of 2 instead of the usual. 
+- There will be qualification matches, alliance selection, eliminations, and awards at the end (see [schedule](about.md#schedule) for more detail).
+
 ## Payment
 Payment is only $25 USD per team, based on a **first come, first served policy**. Additionally, you can pay additional increments of $25 to compete with additional robots.
 - Teams will receive information regarding how to pay after registration via email.
