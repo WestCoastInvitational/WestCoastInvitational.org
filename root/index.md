@@ -17,7 +17,7 @@ hero:
       link: https://forms.gle/BikYtwEAd88kv4hr8
     - theme: alt
       text: Schedule
-      link: /about
+      link: /about#schedule
     - theme: alt
       text: Learn more
       link: /about
