@@ -30,7 +30,7 @@ export default defineConfig({
     ],
 
     footer: {
-      copyright: 'Copyright © 2025 West Coast Invitational. Thanks to Arush Yadlapati for helping create this site.'
+      copyright: 'Copyright © 2025 West Coast Invitational. Made with ❤ by the WCI team.'
     }
   },
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]]

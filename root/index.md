@@ -16,6 +16,9 @@ hero:
       text: Sign up!
       link: https://forms.gle/BikYtwEAd88kv4hr8
     - theme: alt
+      text: Schedule
+      link: /about#schedule
+    - theme: alt
       text: Learn more
       link: /about
 
@@ -23,8 +26,8 @@ features:
   - title: Streaming
     details: All matches will be streamed on the official West Coast Invitational YouTube channel and will be available for playback
   - title: Awards
-    details: WCI has a number of awards that are earned by teams in many different ways
+    details: WCI has awards for both the Winning and Finalist alliances, as well as the WCI Board Award that will be given to one truly outstanding team.
   - title: Format
-    details: The event will follow standard championship format including judging, qualifications, alliance selection, eliminations, and awards.
+    details: The event will follow standard Into the Deep season format including qualification matches, alliance selection, eliminations, and awards.
 ---
 
