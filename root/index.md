@@ -13,8 +13,8 @@ hero:
 
   actions:
     - theme: brand
-      text: Sign up!
-      link: https://forms.gle/BikYtwEAd88kv4hr8
+      text: Team List
+      link: /teamlist
     - theme: alt
       text: Schedule
       link: /about#schedule
