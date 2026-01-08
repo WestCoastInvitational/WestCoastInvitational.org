@@ -19,7 +19,7 @@ export default defineConfig({
       { text: 'About', link: '/about' },
       { text: 'Awards', link: '/awards' },
       { text: 'Team List', link: '/teamlist' },
-      { text: 'Contact', link: 'mailto:contact@westcoastinvitational.org' },
+      { text: 'Contact', link: 'mailto:westcoastinvitationalftc@gmail.com' },
       // { text: 'Register', link: '/apply' },
       // { text: 'Volunteer', link: '/volunteer' }
     ],
