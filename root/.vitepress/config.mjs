@@ -12,7 +12,7 @@ export default defineConfig({
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo:'/assets/v3_wci_25_whitetext.png',
+    logo:'/assets/WCI-whitetext-with-date.png',
     siteTitle:false,
 
     nav: [

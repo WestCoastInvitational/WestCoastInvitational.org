@@ -152,7 +152,8 @@
   background-color: var(--vp-nav-bg-color);
 }
 .VPNavBar .logo {
-  height: 65px;  /* whatever wci logo height you want */
+  height: 150%
+  /*max-height: 82px;*/
 }
 .VPNavBarMenuLink {
   font-size: 24px !important;
@@ -163,4 +164,8 @@
 .VPSocialLink>span {
   height: var(--social-link-size) !important;
   width: var(--social-link-size) !important;
+}
+
+.VPImage.image-src {
+  max-width: 90% !important;
 }

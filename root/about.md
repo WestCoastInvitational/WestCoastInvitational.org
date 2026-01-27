@@ -12,7 +12,6 @@ The 2026 West Coast Invitational will happen tentatively on June 6th - 7th, 2026
 ## Venue & Parking Information
 
 - **Parking Information:** Parking is available on site at Foss High School's parking lot.
-- **WCI Event Areas:** All competition zones and facilities for WCI are highlighted in the right/bottom diagram (note: this diagram is rotated 90 degrees clockwise compared to the previous diagram).
 - **Arrival Time:** See the [schedule below](about.md#schedule).
 
 [//]: # (<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">)
