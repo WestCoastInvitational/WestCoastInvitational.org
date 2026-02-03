@@ -12,16 +12,16 @@ export default defineConfig({
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo:'/assets/v3_wci_25_whitetext.png',
+    logo:'/assets/WCI-whitetext-with-date.png',
     siteTitle:false,
 
     nav: [
       { text: 'About', link: '/about' },
       { text: 'Awards', link: '/awards' },
-      { text: 'Team List', link: '/teamlist' },
+      // { text: 'Team List', link: '/teamlist' },
       { text: 'Contact', link: 'mailto:westcoastinvitationalftc@gmail.com' },
-      // { text: 'Register', link: '/apply' },
-      // { text: 'Volunteer', link: '/volunteer' }
+      { text: 'Register', link: '/apply' },
+      { text: 'Volunteer', link: '/volunteer' }
     ],
 
     socialLinks: [
