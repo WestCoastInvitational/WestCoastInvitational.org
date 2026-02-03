@@ -26,7 +26,7 @@ The 2026 West Coast Invitational will happen tentatively on June 6th - 7th, 2026
 
 | Time                       | What                                |
 |:---------------------------|:------------------------------------|
-| **Day 1 (June 6th, 2025)** |                                     |
+| **Day 1 (June 6th, 2026)** |                                     |
 | 7:30 AM to 8:00 AM         | Volunteers Arrive                   |
 | 8:30 AM                    | Venue Opens                         |
 | 8:30 AM to 9:30 AM         | Team Check-in                       |
