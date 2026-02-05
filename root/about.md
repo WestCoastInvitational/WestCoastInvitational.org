@@ -50,4 +50,4 @@ The 2026 West Coast Invitational will happen tentatively on June 6th - 7th, 2026
 Payment is only $25 USD per team, based on a **first come, first served policy**. Additionally, you can pay additional increments of $25 to compete with additional robots.
 - Teams will receive information regarding how to pay after registration via email.
 - We will **never** ask you for your credit card information in Discord, email, phone call, or other means.
-  - All payments will be made through a secure payment processor (Stripe).//
+  - All payments will be made through a secure payment processor (Stripe).
