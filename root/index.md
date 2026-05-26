@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "West Coast Invitational"
   #  text: "Offseason competition for FIRST Tech Challenge"
-  tagline: An annual offseason FIRST Tech Challenge competition created to highlight team's true potential and to show off what they have accomplished this year in a fun but competitive event.
+  tagline: An annual offseason FIRST Tech Challenge competition created to highlight teams' true potential and to show off what they have accomplished this year in a fun but competitive event.
 
   image:
     dark: /assets/WCI-whitetext-with-date.png
@@ -24,10 +24,9 @@ hero:
 
 features:
   - title: Streaming
-    details: All matches will be streamed on the official West Coast Invitational YouTube channel and will be available for playback
+    details: All matches will be streamed on the official West Coast Invitational YouTube channel and will be available for playback.
   - title: Awards
     details: WCI has awards for both the Winning and Finalist alliances, as well as the WCI Board Award that will be given to one truly outstanding team.
   - title: Format
-    details: The event will follow standard Into the Deep season format including qualification matches, alliance selection, eliminations, and awards.
----
+    details: The event will follow standard DECODE season format including qualification matches, alliance selection, eliminations, and awards.
 

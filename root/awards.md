@@ -6,7 +6,7 @@ layout: home
 
 # Awards
 
-There will be awards (trophy) for the following categories:
+There will be awards (trophies) for the following categories:
 - **Winning Alliance Captain**: The captain of the winning alliance.
 - **Winning Alliance Partner**: The partner of the winning alliance.
 - **Finalist Alliance Captain**: The captain of the finalist alliance.
