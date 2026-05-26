@@ -6,7 +6,7 @@ layout: home
 
 # About WCI
 
-The 2026 West Coast Invitational will happen on July 11th, 2026, from 8am - 6pm, at [North Tapps Middle School](https://www.google.com/maps/place/North+Tapps+Middle+School/@47.248772,-122.1638732,17z/data=!3m1!4b1!4m6!3m5!1s0x5490f73ea028b96d:0x97264a345bf74725!8m2!3d47.248772!4d-122.1612983!16s%2Fm%2F076dmmf?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D) (20029 12th St E, Bonney Lake, WA 98391)
+The 2026 West Coast Invitational will happen on July 11th, 2026, from 8 AM - 6 PM, at [North Tapps Middle School](https://www.google.com/maps/place/North+Tapps+Middle+School/@47.248772,-122.1638732,17z/data=!3m1!4b1!4m6!3m5!1s0x5490f73ea028b96d:0x97264a345bf74725!8m2!3d47.248772!4d-122.1612983!16s%2Fm%2F076dmmf?entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D) (20029 12th St E, Bonney Lake, WA 98391)
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2708.354444887927!2d-122.16387322387503!3d47.24877197115928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490f73ea028b96d%3A0x97264a345bf74725!2sNorth%20Tapps%20Middle%20School!5e0!3m2!1sen!2sus!4v1779767248893!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 ## Venue & Parking Information
@@ -45,8 +45,11 @@ The 2026 West Coast Invitational will happen on July 11th, 2026, from 8am - 6pm,
 - The event will follow standard 2026 DECODE season format, with a double elimination bracket.
 - There will be qualification matches, alliance selection, eliminations, and awards at the end (see [schedule](about.md#schedule) for more detail).
 
-## Payment
-- Payment is $50 USD per teams that are selected. All [applications](/apply) will be due by **June 21st, 2026**, at 11:59PM PDT, and will be reviewed a rolling basis.
-- Additionally, you can pay additional increments of $35 to compete with additional robots, if there is enough space.
+## Applications
+- All [applications](/apply) are due by **June 21st, 2026**, at 11:59PM PDT, and will be reviewed and se;ected on a rolling basis.
 - Accepted teams will receive information regarding how to pay for registration via email.
+
+## Payment
+- Payment is $50 USD for accepted teams.
+- Additionally, you can pay increments of $35 to compete with extra robots, if there is enough space.
 - We will **never** ask you for your credit card information in Discord, email, phone call, or other means - all payments will be made through a secure payment processor.

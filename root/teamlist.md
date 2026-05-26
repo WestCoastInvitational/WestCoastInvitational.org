@@ -13,5 +13,5 @@ robots. You can also find the list online at [https://ftc-events.firstinspires.o
 ### Competing teams:
 - 3805 Atomic Robotics
 
-*Note: on the website and on the scoring display, the last __ teams will all be listed as “Off-Season Demo Team,” due to 
-the way FIRST handles offseason teams. They will be announced at the event as the names listed above by the MCs and GAs.*
+*Note: On the website and on the scoring display, the last __ teams will all be listed as “Off-Season Demo Team,” due to 
+the way FIRST handles off-season teams. They will be announced at the event as the names listed above by the MCs and GAs.*
