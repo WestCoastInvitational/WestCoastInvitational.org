@@ -2,6 +2,10 @@
 node_modules
 /dist
 
+# VitePress build artifacts
+root/.vitepress/dist/
+root/.vitepress/cache/
+
 # local env files
 .env.local
 .env.*.local
