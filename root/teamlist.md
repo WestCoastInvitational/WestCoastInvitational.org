@@ -15,9 +15,8 @@ const teams = [
   { number: '25444', name: 'The Reckless', logo: '/assets/logos/THE RECKLESS logo - Javohir Jurayev.jpg' },
   { number: '27393', name: 'The FBI - FIRST Bot Inventors', logo: null },
   { number: '28395', name: 'Pixel Raptors', logo: '/assets/logos/logo - Pixel Raptors.png' },
-  { number: '30452', name: 'Robo-X', logo: null },
   { number: '30624', name: 'Pangolins in Disguise', logo: '/assets/logos/drawingv21 - Pangolins. In. Disguise.png' },
-  { number: '99967', name: 'Chud Force', logo: null },
+  { number: '99967', name: 'Droid Force Jr.', logo: '/assets/logos/image0 - Justin Liu.jpg' }
 ];
 
 const COLS = 4;
