@@ -1,5 +1,5 @@
 const APPLICATION_FORM = "https://forms.gle/cX4nfBhYHmSySns46"
 const VOLUNTEER_FORM = "https://forms.gle/Gb3gx34czK2gEqRUA"
 const DISCORD = "https://discord.com/invite/JmVjbpxUj3"
-const BOARD_FORM = "https://forms.gle/7sq3MzkY4tNCQMsN7"
+const BOARD_FORM = "https://docs.google.com/forms/d/e/1FAIpQLScWnhZhqJCcpHEJJiMIBqT8Ya7h9Fa6kPnLI3ubsjXa5hTW2g/viewform?usp=header"
 const STREAM = "https://youtube.com/live/VAuyBn-IWAk"
