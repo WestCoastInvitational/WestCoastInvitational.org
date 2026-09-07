@@ -28,5 +28,5 @@ features:
   - title: Awards
     details: WCI has awards for both the Winning and Finalist alliances, as well as the WCI Board Award that will be given to one truly outstanding team.
   - title: Format
-    details: The event will follow standard DECODE season format including qualification matches, alliance selection, eliminations, and awards.
+    details: The event will follow standard BIOBUZZ season format including qualification matches, alliance selection, eliminations, and awards.
 
