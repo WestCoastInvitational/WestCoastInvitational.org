@@ -1,0 +1,11 @@
+---
+interface Props {
+  dir?: "right" | "out";
+  size?: number;
+}
+const { dir = "right", size = 20 } = Astro.props;
+const d = dir === "right" ? "M5 12h14M13 6l6 6-6 6" : "M7 17 17 7M9 7h8v8";
+---
+<svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true">
+  <path d={d} fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

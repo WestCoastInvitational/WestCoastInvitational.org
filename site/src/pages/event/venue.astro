@@ -1,0 +1,19 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import { event } from "../../data/event";
+import { url } from "../../lib/url";
+
+const { venue } = event;
+---
+<SubPage lede={`${venue.name}, ${venue.city}`}>
+  <section class="block">
+    <h2>Address</h2>
+    <address class="bigaddress">{venue.street}<br />{venue.cityLine}</address>
+    <p>Free parking on site in the Foss lot.</p>
+    <div class="actions">
+      <a class="btn btn--sun" href={venue.mapUrl}>Open in Maps</a>
+      <a class="link" href={url("/travel")}>Travel, hotels &amp; visas</a>
+    </div>
+  </section>
+  <iframe class="mapframe" src={venue.mapEmbed} title={`Map of ${venue.name}`} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</SubPage>

@@ -1,0 +1,17 @@
+---
+import SubPage from "../layouts/SubPage.astro";
+import Arrow from "../components/Arrow.astro";
+import { links } from "../data/links";
+import { soon } from "../data/soon";
+import { url } from "../lib/url";
+---
+<SubPage lede="Questions about applying, volunteering, or sponsoring? Reach out any way you like.">
+  <ul class="quick__list">
+    <li><a href={`mailto:${links.email}`}>{links.email} <Arrow dir="out" size={18} /></a></li>
+    <li><a href={url("/discord")}>Discord <Arrow dir="out" size={18} /></a></li>
+    <li><a href={links.instagram}>Instagram <Arrow dir="out" size={18} /></a></li>
+    <li><a href={links.youtube}>YouTube <Arrow dir="out" size={18} /></a></li>
+    <li><span>{soon.phone.label}</span><em>Soon</em></li>
+    <li><a href={url("/board")}>Join the WCI Board <Arrow dir="out" size={18} /></a></li>
+  </ul>
+</SubPage>

@@ -1,0 +1,17 @@
+---
+import Arrow from "./Arrow.astro";
+import { findPage } from "../data/nav";
+import { url, sitePath } from "../lib/url";
+
+const { section } = findPage(sitePath(Astro.url.pathname));
+---
+<ul class="cards">
+  {section.pages.map((p) => (
+    <li>
+      <a href={url(p.path)}>
+        <span class="cards__title">{p.title} <Arrow size={22} /></span>
+        <span class="cards__blurb">{p.blurb}</span>
+      </a>
+    </li>
+  ))}
+</ul>

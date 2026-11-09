@@ -1,0 +1,33 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import { teams2026, teams2027, type Team } from "../../data/teams";
+import { links } from "../../data/links";
+import { url } from "../../lib/url";
+
+const logoFor = (team: Team) => url(`/logos/${team.logo ?? "default.png"}`);
+const groups = [
+  ...(teams2027.length ? [{ title: "WCI '27 teams", teams: teams2027 }] : []),
+  { title: "WCI '26 teams", teams: teams2026 },
+];
+---
+<SubPage lede={teams2027.length ? "The teams competing at WCI '27." : "WCI '27 teams will be announced as they're accepted."}>
+  {groups.map((group) => (
+    <section class="block">
+      <h2>{group.title}</h2>
+      <ul class="teamgrid">
+        {group.teams.map((team) => (
+          <li>
+            <img src={logoFor(team)} alt={`${team.name} logo`} loading="lazy" width="300" height="300" />
+            <b>{team.number}</b>
+            <span>{team.name}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+  <section class="block">
+    <h2>Is your logo missing?</h2>
+    <p>Seeing a default FIRST logo instead of your team's? Send us one via <a class="link" href={`mailto:${links.email}`}>email</a> or <a class="link" href={url("/discord")}>Discord</a> to get it updated.</p>
+    <p class="block__soft">You can also find the 2026 list on <a class="link" href={links.teams2026}>FTC Events</a>.</p>
+  </section>
+</SubPage>

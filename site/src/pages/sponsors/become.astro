@@ -1,0 +1,18 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import Soon from "../../components/Soon.astro";
+import { links } from "../../data/links";
+
+const mail = `mailto:${links.email}?subject=Sponsoring%20WCI%20'27`;
+---
+<SubPage lede="Want your name in front of every team at WCI '27?">
+  <section class="block">
+    <h2>Sponsor now</h2>
+    <p>Email the WCI team to get started.</p>
+    <div class="actions"><a class="btn btn--dusk" href={mail}>Become a sponsor</a></div>
+  </section>
+  <div class="soonlist">
+    <Soon id="opportunities" />
+    <Soon id="sponsorPacket" />
+  </div>
+</SubPage>

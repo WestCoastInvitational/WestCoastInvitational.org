@@ -1,0 +1,44 @@
+---
+import "@fontsource-variable/archivo/wdth.css";
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { url } from "../lib/url";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = "An annual offseason FIRST Tech Challenge competition. July 10–11, 2027 at Foss High School, Tacoma, WA.",
+} = Astro.props;
+
+const noindex = import.meta.env.PUBLIC_NOINDEX === "true";
+const share = new URL(url("/og.png"), Astro.site ?? Astro.url).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={share} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

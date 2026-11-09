@@ -1,0 +1,59 @@
+---
+import "../styles/page.css";
+import Base from "./Base.astro";
+import Rings from "../components/Rings.astro";
+import Arrow from "../components/Arrow.astro";
+import { findPage } from "../data/nav";
+import { url, sitePath } from "../lib/url";
+
+interface Props {
+  lede?: string;
+}
+const { lede } = Astro.props;
+const here = sitePath(Astro.url.pathname);
+const { section, page, isHub, prev, next } = findPage(here);
+const showSide = !isHub && section.pages.length > 0;
+const description = lede ?? page.blurb;
+// Long words shrink the title just enough to stay whole.
+const longestWord = Math.max(...page.title.split(/\s+/).map((word) => word.length));
+---
+<Base title={`${page.title} · WCI '27`} description={description}>
+  <header class="subhead">
+    <div class="subhead__sun" aria-hidden="true"><Rings /></div>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href={url("/")}>Home</a></li>
+        {!isHub && <li><a href={url(section.path)}>{section.title}</a></li>}
+        <li aria-current="page">{page.title}</li>
+      </ol>
+    </nav>
+    <h1 class="display subhead__title" style={`--longest: ${longestWord}`}>{page.title}</h1>
+    <p class="lede subhead__lede">{description}</p>
+  </header>
+
+  <div class="sub" data-tone={section.tone}>
+    <div class:list={["sub__grid", { "sub__grid--solo": !showSide }]}>
+      {showSide && (
+        <aside class="sub__side">
+          <nav aria-label={`${section.title} pages`}>
+            <a class="sub__sidehead" href={url(section.path)}>{section.title}</a>
+            <ul>
+              {section.pages.map((p) => (
+                <li><a href={url(p.path)} aria-current={p.path === here ? "page" : undefined}>{p.title}</a></li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+      )}
+      <div class="sub__main">
+        <slot />
+        {(prev || next) && (
+          <nav class="pager" aria-label="Previous and next page">
+            {prev ? <a class="pager__prev" href={url(prev.path)}><span>Previous</span>{prev.title}</a> : <span />}
+            {next && <a class="pager__next" href={url(next.path)}><span>Next</span>{next.title} <Arrow size={18} /></a>}
+          </nav>
+        )}
+      </div>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,18 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import Soon from "../../components/Soon.astro";
+import { url } from "../../lib/url";
+---
+<SubPage lede="Tentative. Times are estimates and may change.">
+  <section class="block">
+    <h2>Volunteer times</h2>
+    <dl class="dlist">
+      <div><dt>7:30–8:00 AM</dt><dd>Volunteers arrive</dd></div>
+      <div><dt>6:30–7:30 PM</dt><dd>Teardown</dd></div>
+    </dl>
+    <div class="actions"><a class="link" href={url("/event/schedule")}>See the full event schedule</a></div>
+  </section>
+  <div class="soonlist soonlist--one">
+    <Soon id="volunteerShifts" />
+  </div>
+</SubPage>

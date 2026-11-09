@@ -1,0 +1,26 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import Cards from "../../components/Cards.astro";
+import Soon from "../../components/Soon.astro";
+import { presentingSponsors, eventSponsors } from "../../data/sponsors";
+
+const groups = [
+  { id: "presenting" as const, title: "Presenting sponsor", list: presentingSponsors },
+  { id: "eventSponsors" as const, title: "Event sponsors", list: eventSponsors },
+];
+---
+<SubPage>
+  <div class="soonlist">
+    {groups.map((group) =>
+      group.list.length ? (
+        <section class="soonitem">
+          <h3>{group.title}</h3>
+          <ul>{group.list.map((s) => <li>{s.url ? <a class="link" href={s.url}>{s.name}</a> : s.name}</li>)}</ul>
+        </section>
+      ) : (
+        <Soon id={group.id} />
+      )
+    )}
+  </div>
+  <Cards />
+</SubPage>

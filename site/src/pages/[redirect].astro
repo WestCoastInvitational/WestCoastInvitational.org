@@ -1,0 +1,24 @@
+---
+import { redirects } from "../data/links";
+import { url } from "../lib/url";
+
+export function getStaticPaths() {
+  return redirects.map((r) => ({ params: { redirect: r.from }, props: { to: r.to } }));
+}
+
+const target = url(Astro.props.to);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting...</title>
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <script is:inline define:vars={{ target }}>location.replace(target);</script>
+  </head>
+  <body>
+    <p>Redirecting... <a href={target}>Continue</a></p>
+  </body>
+</html>

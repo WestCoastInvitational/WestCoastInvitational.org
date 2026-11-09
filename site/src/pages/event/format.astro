@@ -1,0 +1,21 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import Soon from "../../components/Soon.astro";
+---
+<SubPage lede="Standard BIOBUZZ season format, with a double-elimination bracket (subject to change).">
+  <section class="block">
+    <h2>How it runs</h2>
+    <dl class="dlist">
+      <div><dt>Qualification matches</dt><dd>Every team plays through the qualification rounds.</dd></div>
+      <div><dt>Alliance selection</dt><dd>Alliances form for the playoffs.</dd></div>
+      <div><dt>Playoffs</dt><dd>A double-elimination bracket.</dd></div>
+      <div><dt>Awards</dt><dd>Handed out at the end of the event.</dd></div>
+      <div><dt>Fields</dt><dd>One competition field, plus a practice field.</dd></div>
+      <div><dt>Stream</dt><dd>Every match live on the WCI YouTube channel, with replays after.</dd></div>
+    </dl>
+  </section>
+  <div class="soonlist">
+    <Soon id="manual" />
+    <Soon id="playoffDetails" />
+  </div>
+</SubPage>

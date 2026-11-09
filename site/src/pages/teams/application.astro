@@ -1,0 +1,27 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import Soon from "../../components/Soon.astro";
+import Arrow from "../../components/Arrow.astro";
+import { url } from "../../lib/url";
+---
+<SubPage lede="Applications are open now and reviewed on a rolling basis.">
+  <section class="block">
+    <h2>Apply</h2>
+    <p>Fill out the team application. We review as they come in, and accepted teams get an email with registration and payment details.</p>
+    <div class="actions">
+      <a class="btn btn--sun" href={url("/apply")}>Open the application <Arrow /></a>
+    </div>
+  </section>
+  <section class="block">
+    <h2>How to pay</h2>
+    <dl class="dlist">
+      <div><dt>Team fee</dt><dd>$50 USD for accepted teams.</dd></div>
+      <div><dt>Extra robots</dt><dd>$35 each, if there's space.</dd></div>
+      <div><dt>Payment</dt><dd>Payments only go through a secure processor. We will never ask for card details over Discord, email, or phone.</dd></div>
+    </dl>
+  </section>
+  <div class="soonlist">
+    <Soon id="deadline" />
+    <Soon id="refund" />
+  </div>
+</SubPage>

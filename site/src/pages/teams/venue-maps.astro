@@ -1,0 +1,15 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import Soon from "../../components/Soon.astro";
+import { event } from "../../data/event";
+---
+<SubPage>
+  <section class="block">
+    <h2>{event.venue.name}</h2>
+    <address class="bigaddress">{event.venue.street}<br />{event.venue.cityLine}</address>
+    <div class="actions"><a class="btn btn--sun" href={event.venue.mapUrl}>Open in Maps</a></div>
+  </section>
+  <div class="soonlist soonlist--one">
+    <Soon id="venueMap" />
+  </div>
+</SubPage>

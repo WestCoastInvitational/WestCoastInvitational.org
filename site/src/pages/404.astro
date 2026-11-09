@@ -1,0 +1,16 @@
+---
+import "../styles/page.css";
+import Base from "../layouts/Base.astro";
+import Rings from "../components/Rings.astro";
+import { url } from "../lib/url";
+---
+<Base title="Page not found · WCI '27">
+  <header class="subhead">
+    <div class="subhead__sun" aria-hidden="true"><Rings /></div>
+    <h1 class="display subhead__title">Page not found</h1>
+    <p class="lede subhead__lede">That page may have moved. The home page and menu will get you back on track.</p>
+    <div class="actions" style="margin-top: 2rem">
+      <a class="btn btn--sun" href={url("/")}>Back to home</a>
+    </div>
+  </header>
+</Base>

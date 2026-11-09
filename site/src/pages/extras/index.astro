@@ -1,0 +1,18 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import { extras } from "../../data/extras";
+import { url } from "../../lib/url";
+
+const tiers = [1, 2, 3].map((tier) => extras.filter((e) => e.tier === tier));
+---
+<SubPage lede="Planned for '27. Details and times announcing soon.">
+  <div class="lineup">
+    {tiers.map((list, i) => (
+      <ul class={`tier t${i + 1}`}>
+        {list.map((extra) => (
+          <li><a href={url(`/extras/${extra.slug}`)}>{extra.title}</a></li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</SubPage>

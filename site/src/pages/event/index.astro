@@ -1,0 +1,13 @@
+---
+import { Image } from "astro:assets";
+import SubPage from "../../layouts/SubPage.astro";
+import Cards from "../../components/Cards.astro";
+import photo from "../../assets/img/field-wide.jpg";
+---
+<SubPage>
+  <Cards />
+  <figure class="photo">
+    <Image src={photo} alt="An emcee in a rainbow skirt speaks into a microphone beside the competition field while a match plays on the big screen" widths={[800, 1600]} sizes="100vw" />
+    <figcaption>WCI '25</figcaption>
+  </figure>
+</SubPage>

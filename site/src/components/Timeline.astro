@@ -1,0 +1,11 @@
+---
+import { schedule } from "../data/schedule";
+---
+<ol class="timeline">
+  {schedule.map((item) => (
+    <li class={item.big ? "is-big" : undefined}>
+      <time>{item.time}</time>
+      <span>{item.label}</span>
+    </li>
+  ))}
+</ol>

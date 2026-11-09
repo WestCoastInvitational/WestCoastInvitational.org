@@ -1,0 +1,22 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import Soon from "../../components/Soon.astro";
+import { extras, type Extra } from "../../data/extras";
+
+export function getStaticPaths() {
+  return extras.map((extra) => ({ params: { slug: extra.slug }, props: { extra } }));
+}
+
+const { extra } = Astro.props as { extra: Extra };
+---
+<SubPage lede="Planned for '27.">
+  <section class="block">
+    <h2>Details</h2>
+    {extra.description ? <p>{extra.description}</p> : <p class="soon">Details and times announcing soon</p>}
+  </section>
+  {extra.items && (
+    <div class="soonlist">
+      {extra.items.map((id) => <Soon id={id} />)}
+    </div>
+  )}
+</SubPage>

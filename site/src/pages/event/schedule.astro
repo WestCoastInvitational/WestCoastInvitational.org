@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+import SubPage from "../../layouts/SubPage.astro";
+import Timeline from "../../components/Timeline.astro";
+import Soon from "../../components/Soon.astro";
+import photo from "../../assets/img/gym-wide.jpg";
+---
+<SubPage lede="Tentative. Times are estimates and may change.">
+  <section class="block">
+    <h2>Event day</h2>
+    <Timeline />
+  </section>
+  <div class="soonlist soonlist--one">
+    <Soon id="days" note="WCI runs July 10–11. The breakdown for each day is on the way." />
+  </div>
+  <figure class="photo">
+    <Image src={photo} alt="Wide view of the gym at WCI '25: the field on blue tarp, scoring table, and spectators in the stands" widths={[800, 1400]} sizes="(max-width: 900px) 100vw, 66vw" />
+    <figcaption>WCI '25</figcaption>
+  </figure>
+</SubPage>

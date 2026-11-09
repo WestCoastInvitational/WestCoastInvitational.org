@@ -1,0 +1,58 @@
+---
+import logo from "../assets/wci-27-white.svg";
+import Rings from "./Rings.astro";
+import { event } from "../data/event";
+import { links } from "../data/links";
+import { sections } from "../data/nav";
+import { quickItems } from "../data/quick";
+import { soon } from "../data/soon";
+import { url, sitePath } from "../lib/url";
+
+const isHome = sitePath(Astro.url.pathname) === "/";
+const explore = sections.flatMap((s) =>
+  s.id === "teams" ? [s, ...s.pages.filter((p) => p.path === "/teams/list")] : [s]
+);
+---
+<footer class:list={["foot", isHome ? "foot--home" : "foot--site"]}>
+  {isHome && (
+    <>
+      <div class="foot__sunrise" aria-hidden="true">
+        <Rings viewBox="-500 -500 1000 500" />
+      </div>
+      <div class="foot__body">
+        <p class="foot__big">See you in Tacoma.</p>
+      </div>
+    </>
+  )}
+  <div class="foot__grid">
+    <div class="foot__col">
+      <h2>Quick Links</h2>
+      <ul>
+        {quickItems.map((item) => (
+          <li>{item.href ? <a href={url(item.href)}>{item.label}</a> : <><span>{item.label}</span> <em>Soon</em></>}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="foot__col">
+      <h2>Explore</h2>
+      <ul>
+        {explore.map((page) => <li><a href={url(page.path)}>{page.title}</a></li>)}
+      </ul>
+    </div>
+    <div class="foot__col foot__col--contact">
+      <h2>Get in touch</h2>
+      <ul>
+        <li><a href={`mailto:${links.email}`}>{links.email}</a></li>
+        <li><a href={url("/discord")}>Discord</a></li>
+        <li><a href={links.instagram}>Instagram</a></li>
+        <li><a href={links.youtube}>YouTube</a></li>
+        <li><span>{soon.phone.label}</span> <em>Soon</em></li>
+        <li><a href={url("/board")}>Join the WCI Board</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot__bar">
+    <img src={logo.src} alt="West Coast Invitational '27" width={logo.width} height={logo.height} loading="lazy" />
+    <p>{event.copyright}</p>
+  </div>
+</footer>

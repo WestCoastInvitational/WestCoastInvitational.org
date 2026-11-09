@@ -1,0 +1,15 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import { links } from "../../data/links";
+---
+<SubPage lede="Coming from outside the US? Here's where to start.">
+  <section class="block">
+    <h2>Visas</h2>
+    <p>Check whether your team needs a visa on the US State Department's site.</p>
+    <div class="actions"><a class="btn btn--dusk" href={links.visas}>US visa information</a></div>
+  </section>
+  <section class="block">
+    <h2>Help or an invitation letter</h2>
+    <p>Email <a class="link" href={`mailto:${links.email}`}>{links.email}</a> and the WCI team will help.</p>
+  </section>
+</SubPage>

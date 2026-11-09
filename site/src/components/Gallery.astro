@@ -1,0 +1,63 @@
+---
+import { getImage } from "astro:assets";
+import { galleryRows, galleryImage } from "../data/gallery";
+
+const FULL_WIDTH = 1600;
+
+const rows = await Promise.all(
+  galleryRows.map((row) =>
+    Promise.all(
+      row.map(async ({ file, alt }) => {
+        const src = galleryImage(file);
+        const thumb = await getImage({ src, width: Math.min(900, src.width), format: "webp" });
+        const full = await getImage({ src, width: Math.min(FULL_WIDTH, src.width), format: "webp" });
+        const width = Math.min(900, src.width);
+        return { alt, thumb: thumb.src, full: full.src, width, height: Math.round((width * src.height) / src.width), ratio: src.width / src.height };
+      })
+    )
+  )
+);
+---
+<div class="gallery" role="group" aria-label="Photos from past WCI events">
+  {rows.map((row, r) => (
+    <div class={`gallery__row gallery__row--${r + 1}`}>
+      <div class="gallery__track">
+        {[0, 1].map((copy) => {
+          // The second copy only exists to make the loop seamless.
+          const real = copy === 0;
+          const Tag = real ? "button" : "div";
+          return (
+            <div class="gallery__half" aria-hidden={real ? undefined : "true"}>
+              {row.map((photo) => (
+                <Tag
+                  class="gallery__photo"
+                  data-full={photo.full}
+                  data-alt={photo.alt}
+                  data-ratio={photo.ratio}
+                  {...(real ? { type: "button", "aria-label": `Expand photo: ${photo.alt}` } : {})}
+                >
+                  <span class="gallery__clip">
+                    <img src={photo.thumb} alt="" width={photo.width} height={photo.height} loading="lazy" decoding="async" />
+                  </span>
+                </Tag>
+              ))}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  ))}
+  <button class="gallery__pause" type="button" aria-pressed="false" aria-label="Pause scrolling photos">
+    <svg class="bars" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" /></svg>
+    <svg class="play" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor" /></svg>
+  </button>
+</div>
+
+<dialog class="lightbox" aria-label="Expanded photo">
+  <img alt="" />
+  <button class="lightbox__close" type="button" aria-label="Close photo">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" /></svg>
+  </button>
+</dialog>
+
+<script src="../scripts/gallery.ts"></script>

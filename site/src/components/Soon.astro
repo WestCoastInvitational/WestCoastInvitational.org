@@ -1,0 +1,23 @@
+---
+import { soon, type SoonId, type SoonItem } from "../data/soon";
+import { url } from "../lib/url";
+
+interface Props {
+  id: SoonId;
+  /** What this will cover, shown until the real info is added. */
+  note?: string;
+}
+const { id, note } = Astro.props;
+const item: SoonItem = soon[id];
+---
+<div class="soonitem">
+  <h3>{item.label}</h3>
+  {item.text && <p>{item.text}</p>}
+  {item.url && <a class="link" href={url(item.url)}>Open</a>}
+  {!item.text && !item.url && (
+    <>
+      {note && <p>{note}</p>}
+      <p class="soon">Announcing soon</p>
+    </>
+  )}
+</div>

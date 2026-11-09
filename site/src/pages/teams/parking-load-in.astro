@@ -1,0 +1,20 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import Soon from "../../components/Soon.astro";
+import { url } from "../../lib/url";
+---
+<SubPage lede="Park on site at Foss.">
+  <section class="block">
+    <h2>Arriving</h2>
+    <dl class="dlist">
+      <div><dt>Parking</dt><dd>Free parking on site in the Foss lot.</dd></div>
+      <div><dt>Venue opens</dt><dd>8:30 AM</dd></div>
+      <div><dt>Team check-in</dt><dd>8:30–9:30 AM</dd></div>
+      <div><dt>Robot inspection</dt><dd>9:00–10:30 AM</dd></div>
+    </dl>
+    <div class="actions"><a class="link" href={url("/event/schedule")}>See the full schedule</a></div>
+  </section>
+  <div class="soonlist soonlist--one">
+    <Soon id="loadIn" />
+  </div>
+</SubPage>

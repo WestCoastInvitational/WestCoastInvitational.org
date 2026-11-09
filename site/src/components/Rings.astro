@@ -1,0 +1,28 @@
+---
+interface Props {
+  class?: string;
+  viewBox?: string;
+}
+const { class: className, viewBox = "-500 -500 1000 1000" } = Astro.props;
+
+// Outermost to innermost; the last one is the sun.
+const layers = [
+  { r: 500, fill: "#2bb5e3" },
+  { r: 452, fill: "#2589b8" },
+  { r: 398, fill: "#24477a" },
+  { r: 338, fill: "#1b2450" },
+  { r: 272, fill: "#7a3d6b" },
+  { r: 214, fill: "#c2566f" },
+  { r: 166, fill: "#f06b7a" },
+  { r: 118, fill: "#ff9d4d" },
+];
+---
+<svg class:list={["rings", className]} viewBox={viewBox}>
+  {layers.map((layer, i) => (
+    <circle class:list={["ring", { sun: i === layers.length - 1 }]} r={layer.r} fill={layer.fill} />
+  ))}
+  <!-- Invisible and never moving, so a layer rising away from the cursor can't cause flicker. -->
+  <g class="rings__hit">
+    {layers.map((layer, i) => <circle r={layer.r} data-ring={i} />)}
+  </g>
+</svg>

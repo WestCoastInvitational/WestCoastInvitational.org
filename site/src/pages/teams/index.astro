@@ -1,0 +1,13 @@
+---
+import { Image } from "astro:assets";
+import SubPage from "../../layouts/SubPage.astro";
+import Cards from "../../components/Cards.astro";
+import photo from "../../assets/img/pits-crowd.jpg";
+---
+<SubPage>
+  <Cards />
+  <figure class="photo">
+    <Image src={photo} alt="Students in team shirts gather around a robot in the pits, one of them wearing a full armored costume" widths={[800, 1600]} sizes="100vw" />
+    <figcaption>WCI '25</figcaption>
+  </figure>
+</SubPage>

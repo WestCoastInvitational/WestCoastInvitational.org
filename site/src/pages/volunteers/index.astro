@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import SubPage from "../../layouts/SubPage.astro";
+import Cards from "../../components/Cards.astro";
+import Arrow from "../../components/Arrow.astro";
+import { url } from "../../lib/url";
+import photo from "../../assets/img/emcee-mic.jpg";
+---
+<SubPage lede="Referees, queuers, inspectors, emcees, and setup crew. Every role makes the day happen.">
+  <div class="actions">
+    <a class="btn btn--sun" href={url("/volunteer")}>Sign up to volunteer <Arrow /></a>
+  </div>
+  <Cards />
+  <figure class="photo">
+    <Image src={photo} alt="" widths={[800, 1600]} sizes="100vw" />
+    <figcaption>WCI '25</figcaption>
+  </figure>
+</SubPage>

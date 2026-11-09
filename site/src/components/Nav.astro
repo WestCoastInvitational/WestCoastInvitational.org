@@ -1,0 +1,38 @@
+---
+import logo from "../assets/wci-27-white.svg";
+import { sections, quickLinks } from "../data/nav";
+import { url, sitePath } from "../lib/url";
+
+const here = sitePath(Astro.url.pathname);
+const isCurrent = (path: string) => here === path || here.startsWith(`${path}/`);
+---
+<header class="nav" id="top">
+  <a class="nav__brand" href={url("/")}>
+    <img src={logo.src} alt="West Coast Invitational '27" width={logo.width} height={logo.height} />
+  </a>
+  <button class="nav__toggle" aria-expanded="false" aria-controls="nav-links">
+    <span class="sr-only">Menu</span>
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+  </button>
+  <nav id="nav-links" class="nav__links" aria-label="Main">
+    <ul class="nav__list">
+      {sections.map((s) => (
+        <li class="nav__item">
+          <a class="nav__top" href={url(s.path)} aria-current={isCurrent(s.path) ? "true" : undefined}>{s.menu}</a>
+          {s.pages.length > 0 && (
+            <button class="nav__more" aria-expanded="false" aria-label={`${s.title} pages`}>
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </button>
+            <ul class="nav__drop">
+              {s.pages.map((p) => (
+                <li><a href={url(p.path)} aria-current={here === p.path ? "page" : undefined}>{p.title}</a></li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+      <li class="nav__item"><a class="nav__top" href={url(quickLinks.path)}>{quickLinks.title}</a></li>
+    </ul>
+    <a class="btn btn--sun btn--sm" href={url("/apply")}>Apply</a>
+  </nav>
+</header>

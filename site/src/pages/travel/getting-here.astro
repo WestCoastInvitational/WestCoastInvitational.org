@@ -1,0 +1,19 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import { gettingHere } from "../../data/travel";
+import { event } from "../../data/event";
+---
+<SubPage lede={`${event.venue.name} is at ${event.venue.street}, ${event.venue.cityLine}. Check current schedules with each operator before you travel.`}>
+  {gettingHere.map((option) => (
+    <section class="block">
+      <h2>{option.heading}</h2>
+      <p>{option.body}</p>
+      {option.link && <p><a class="link" href={option.link.url}>{option.link.label}</a></p>}
+    </section>
+  ))}
+  <section class="block">
+    <h2>Driving</h2>
+    <p>Free parking on site in the Foss lot.</p>
+    <div class="actions"><a class="btn btn--dusk" href={event.venue.mapUrl}>Open in Maps</a></div>
+  </section>
+</SubPage>

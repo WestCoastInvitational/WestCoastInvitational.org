@@ -1,0 +1,124 @@
+---
+import "../styles/home.css";
+import Base from "../layouts/Base.astro";
+import Rings from "../components/Rings.astro";
+import Arrow from "../components/Arrow.astro";
+import { event } from "../data/event";
+import { links } from "../data/links";
+import Gallery from "../components/Gallery.astro";
+import { url } from "../lib/url";
+
+const daysLeft = Math.max(0, Math.floor((Date.parse(event.doorsOpen) - Date.now()) / 86400000));
+const marquee = [event.dates, event.venue.name, event.venue.city, `${event.season} season`];
+---
+<Base title={`${event.name} '27 · July 10–11, Tacoma`}>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="sunset" aria-hidden="true"><Rings class="sunset__rings" /></div>
+
+    <div class="hero__copy">
+      <h1 id="hero-title" class="hero__title">
+        <span class="l1">West Coast</span>
+        <span class="l2">Invitational</span>
+        <span class="l3">'27</span>
+      </h1>
+      <p class="hero__when">
+        <time datetime={event.startDate}>{event.dates}</time>
+        <span aria-hidden="true">/</span>
+        {event.venue.name}, {event.venue.city}
+      </p>
+
+      <div class="countdown" role="timer" aria-label="Time until doors open">
+        <div><b data-cd="d">{daysLeft}</b><span>days</span></div>
+        <div><b data-cd="h">00</b><span>hours</span></div>
+        <div><b data-cd="m">00</b><span>min</span></div>
+        <div><b data-cd="s">00</b><span>sec</span></div>
+      </div>
+
+      <div class="hero__actions">
+        <a class="btn btn--sun" href={url("/apply")}>Apply for WCI '27 <Arrow /></a>
+        <a class="btn btn--ghost" href={url("/event")}>Event details</a>
+      </div>
+    </div>
+
+    <!-- the sea doubles as the marquee, so it shows on first load -->
+    <div class="sea marquee" aria-label={`${event.dates}. ${event.venue.name}, Tacoma. ${event.season} season.`}>
+      <div class="marquee__track" aria-hidden="true">
+        {[...marquee, ...marquee].map((text) => (<><span>{text}</span><i></i></>))}
+      </div>
+      <button class="marquee__pause" aria-pressed="false" aria-label="Pause scrolling text">
+        <svg class="bars" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" /></svg>
+        <svg class="play" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor" /></svg>
+      </button>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="about-title">
+    <div class="about__intro">
+      <h2 id="about-title" class="display">Washington's oldest FTC offseason competition.</h2>
+      <p class="lede">West Coast Invitational is an annual offseason FIRST Tech Challenge competition, built so teams can show their full potential and everything they pulled off this season, at an event that's fun first and still plenty competitive.</p>
+    </div>
+
+    <Gallery />
+
+    <dl class="facts">
+      <div><dt>Format</dt><dd>Standard BIOBUZZ season format: qualification matches, alliance selection, double-elimination playoffs, awards.</dd></div>
+      <div><dt>Fields</dt><dd>One competition field, plus a practice field.</dd></div>
+      <div><dt>Stream</dt><dd>Every match live on the WCI YouTube channel, with replays after.</dd></div>
+      <div><dt>Awards</dt><dd>Trophies for winning and finalist alliance captains and partners, plus the WCI Board Award for one truly outstanding team. More awards announcing soon.</dd></div>
+    </dl>
+  </section>
+
+  <section class="road" aria-labelledby="road-title">
+    <div class="road__head">
+      <h2 id="road-title" class="display">The road to Tacoma</h2>
+      <p class="road__must"><mark>Applications are open now and reviewed on a rolling basis.</mark> The deadline is announcing soon, so don't wait.</p>
+    </div>
+
+    <ol class="steps">
+      <li>
+        <h3>Apply</h3>
+        <p>Fill out the team application. We review as they come in.</p>
+        <a class="link" href={url("/apply")}>Open the application</a>
+      </li>
+      <li>
+        <h3>Get accepted</h3>
+        <p>Accepted teams get an email with registration and payment details.</p>
+      </li>
+      <li>
+        <h3>Pay</h3>
+        <p>$50 per team. Extra robots are $35 each if there's space. Payments only go through a secure processor; we will never ask for card details over Discord, email, or phone.</p>
+        <p class="soon">Refund policy announcing soon</p>
+      </li>
+      <li>
+        <h3>Read the team packet</h3>
+        <p>Pit sizes, what to bring and leave at home, load-in, and judging.</p>
+        <p class="soon">Team packet announcing soon</p>
+      </li>
+      <li>
+        <h3>Load in</h3>
+        <p>Park on site at Foss. Check-in runs 8:30–9:30 AM, robot inspection 9:00–10:30 AM.</p>
+      </li>
+      <li>
+        <h3>Compete</h3>
+        <p>Quals, alliance selection, playoffs, awards. Then do it all again next year.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="ask" aria-labelledby="ask-title">
+    <div class="ask__intro">
+      <h2 id="ask-title" class="display">Questions?</h2>
+      <p class="lede">Applying, volunteering, sponsoring, or just curious, reach out and the WCI team will help.</p>
+      <a class="link" href={url("/contact")}>All the ways to contact us</a>
+    </div>
+    <ul class="ask__list">
+      <li><a href={`mailto:${links.email}`}>{links.email} <Arrow dir="out" size={18} /></a></li>
+      <li><a href={url("/discord")}>Discord <Arrow dir="out" size={18} /></a></li>
+      <li><a href={links.instagram}>Instagram <Arrow dir="out" size={18} /></a></li>
+      <li><a href={links.youtube}>YouTube <Arrow dir="out" size={18} /></a></li>
+      <li><span>Phone line</span><em>Soon</em></li>
+    </ul>
+  </section>
+
+  <script src="../scripts/home.ts"></script>
+</Base>

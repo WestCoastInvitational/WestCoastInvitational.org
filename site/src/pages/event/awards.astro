@@ -1,0 +1,20 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import Soon from "../../components/Soon.astro";
+---
+<SubPage lede="Trophies for the winning and finalist alliances, plus an award for one truly outstanding team.">
+  <section class="block">
+    <h2>Trophies</h2>
+    <dl class="dlist">
+      <div><dt>Winning Alliance Captain</dt><dd>The captain of the winning alliance.</dd></div>
+      <div><dt>Winning Alliance Partner</dt><dd>The partner of the winning alliance.</dd></div>
+      <div><dt>Finalist Alliance Captain</dt><dd>The captain of the finalist alliance.</dd></div>
+      <div><dt>Finalist Alliance Partner</dt><dd>The partner of the finalist alliance.</dd></div>
+      <div><dt>WCI Board Award</dt><dd>Given to one truly outstanding team.</dd></div>
+    </dl>
+  </section>
+  <div class="soonlist">
+    <Soon id="specialAwards" note="There will be new awards this year." />
+    <Soon id="awardsManual" />
+  </div>
+</SubPage>

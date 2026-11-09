@@ -1,0 +1,17 @@
+---
+import SubPage from "../../layouts/SubPage.astro";
+import Arrow from "../../components/Arrow.astro";
+import { quickItems } from "../../data/quick";
+import { url } from "../../lib/url";
+---
+<SubPage lede="Everything you'll want on your phone on event day.">
+  <ul class="quick__list">
+    {quickItems.map((item) => (
+      <li>
+        {item.href
+          ? <a href={url(item.href)}>{item.label} <Arrow dir="out" size={18} /></a>
+          : <><span>{item.label}</span><em>Soon</em></>}
+      </li>
+    ))}
+  </ul>
+</SubPage>
