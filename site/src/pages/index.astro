@@ -7,6 +7,10 @@ import { event } from "../data/event";
 import { links } from "../data/links";
 import Gallery from "../components/Gallery.astro";
 import { url } from "../lib/url";
+import { presentingSponsors, eventSponsors } from "../data/sponsors";
+import logo from "../assets/wci-27-white.svg";
+
+const sponsors = [...presentingSponsors, ...eventSponsors];
 
 const daysLeft = Math.max(0, Math.floor((Date.parse(event.doorsOpen) - Date.now()) / 86400000));
 const marquee = [event.dates, event.venue.name, event.venue.city, `${event.season} season`];
@@ -55,17 +59,27 @@ const marquee = [event.dates, event.venue.name, event.venue.city, `${event.seaso
   <section class="about" aria-labelledby="about-title">
     <div class="about__intro">
       <h2 id="about-title" class="display">Washington's oldest FTC offseason competition.</h2>
-      <p class="lede">West Coast Invitational is an annual offseason FIRST Tech Challenge competition, built so teams can show their full potential and everything they pulled off this season, at an event that's fun first and still plenty competitive.</p>
+      <div class="about__side">
+        <img class="about__logo" src={logo.src} width={logo.width} height={logo.height} alt="West Coast Invitational '27 logo" />
+        <p class="lede">West Coast Invitational is an annual offseason FIRST Tech Challenge competition, built so teams can show their full potential and everything they pulled off this season, at an event that's fun first and still plenty competitive.</p>
+      </div>
     </div>
 
     <Gallery />
 
-    <dl class="facts">
-      <div><dt>Format</dt><dd>Standard BIOBUZZ season format: qualification matches, alliance selection, double-elimination playoffs, awards.</dd></div>
-      <div><dt>Fields</dt><dd>One competition field, plus a practice field.</dd></div>
-      <div><dt>Stream</dt><dd>Every match live on the WCI YouTube channel, with replays after.</dd></div>
-      <div><dt>Awards</dt><dd>Trophies for winning and finalist alliance captains and partners, plus the WCI Board Award for one truly outstanding team. More awards announcing soon.</dd></div>
-    </dl>
+    <div class="backers" aria-labelledby="backers-title">
+      <div class="backers__head">
+        <h2 id="backers-title">Our sponsors</h2>
+        <a class="btn btn--sun" href={url("/sponsors/become")}>Sponsor us <Arrow /></a>
+      </div>
+      <ul class="backers__list">
+        {sponsors.map((s) => {
+          const mark = s.logo ? <img src={url(s.logo)} alt={s.name} /> : <span>{s.name}</span>;
+          return <li>{s.url ? <a href={s.url} target="_blank" rel="noopener">{mark}</a> : mark}</li>;
+        })}
+        <li class="backers__open"><a href={url("/sponsors/become")}>Your logo here</a></li>
+      </ul>
+    </div>
   </section>
 
   <section class="road" aria-labelledby="road-title">
@@ -108,11 +122,13 @@ const marquee = [event.dates, event.venue.name, event.venue.city, `${event.seaso
   <section class="ask" aria-labelledby="ask-title">
     <div class="ask__intro">
       <h2 id="ask-title" class="display">Questions?</h2>
-      <p class="lede">Applying, volunteering, sponsoring, or just curious, reach out and the WCI team will help.</p>
-      <a class="link" href={url("/contact")}>All the ways to contact us</a>
+      <div class="ask__row">
+        <p class="lede">Applying, volunteering, sponsoring, or just curious, reach out and the WCI team will help.</p>
+        <a class="btn btn--ghost" href={url("/contact")}>All the ways to contact us <Arrow /></a>
+      </div>
     </div>
     <ul class="ask__list">
-      <li><a href={`mailto:${links.email}`}>{links.email} <Arrow dir="out" size={18} /></a></li>
+      <li><a href={`mailto:${links.email}`} title={links.email}>Email <Arrow dir="out" size={18} /></a></li>
       <li><a href={url("/discord")}>Discord <Arrow dir="out" size={18} /></a></li>
       <li><a href={links.instagram}>Instagram <Arrow dir="out" size={18} /></a></li>
       <li><a href={links.youtube}>YouTube <Arrow dir="out" size={18} /></a></li>

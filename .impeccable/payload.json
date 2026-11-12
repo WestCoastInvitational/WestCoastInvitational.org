@@ -1,0 +1,66 @@
+{
+  "title": "Choose the visual world for WCI '27",
+  "question": "The roll landed on Pit Trade, festival-scale FTC button and sticker culture. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned", "kind": "assigned", "label": "Pit Trade", "kicker": "THE ROLL",
+      "lineage": "FTC pit trading: pin-back team buttons, die-cut vinyl stickers, lanyard credentials, scaled up to festival size",
+      "thesis": "The whole site is the stuff teams trade in the pits: every team, date, and link is a button or sticker slapped onto the WCI sunset.",
+      "palette": ["#141a33", "#2bb5e3", "#f06b7a", "#ff9d4d", "#7a3d6b", "#fff6ea"],
+      "materials": ["pin-back buttons with white rims", "die-cut vinyl with sticker borders", "flat concentric sunset arcs from the logo"],
+      "viewport": "A huge stacked WEST COAST INVITATIONAL '27 over the logo's sunset arcs, the countdown on a giant coral button, robot and host photos as pin-back buttons, the Apply action as a die-cut sticker.",
+      "risk": "Too many stickers and it turns into clutter; logistics pages have to stay calm.",
+      "raised": [
+        {"from": "operate-a-cutting-bench-select-rail", "raise": "Full color commitment: sunset orange and coral own whole regions on every screen, not just accents."},
+        {"from": "clouds-storms-auroras-iridescent-cloud-edge", "raise": "Logistics text stays calm and plain; the stickers live around the edges, never on top of the info."},
+        {"from": "paper-folds-pleats-deployable-orizuru-crane-sequence", "raise": "Team Info becomes one numbered path: Apply, Accepted, Pay, Packet, Load-in, Compete."},
+        {"from": "hand-drawn-zine-explainer", "raise": "Each logistics section leads with one highlighted must-know line."},
+        {"from": "wayfinding-cartography-signage-salt-stiffened-treasure-map", "raise": "Venue, ER, parking, and food trucks share one annotated map instead of scattered address blocks."}
+      ],
+      "html": ".impeccable/mocks/decision/assigned.html",
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick", "kind": "pick", "label": "Festival Lineup Poster", "kicker": "IMPECCABLE’S PICK",
+      "lineage": "summer music-festival lineup posters with tiered billing",
+      "thesis": "WCI billed like a festival: teams as the lineup, tiered by type size, on a banded sunset.",
+      "palette": ["#141a33", "#24477a", "#7a3d6b", "#f06b7a", "#ff9d4d"],
+      "materials": ["flat horizon bands", "tiered lineup typography"],
+      "viewport": "A centered lineup: name and date up top, team numbers billed in shrinking tiers, the event extras as the bottom row.",
+      "risk": "Familiar: most festival-themed sites land here, and it needs a team list that won't exist until spring.",
+      "html": ".impeccable/mocks/decision/pick.html",
+      "comp": ".impeccable/mocks/decision/pick.webp"
+    },
+    {
+      "id": "challenger-raygun", "kind": "challenger", "catalogId": "design-canon-raygun-layout-desk",
+      "label": "Surf Mag Layout Desk", "verdict": "competitive",
+      "lineage": "90s surf and music magazine layouts",
+      "thesis": "WCI as a surf-culture magazine spread: type crashing through black-and-white event photos.",
+      "palette": ["#efe6d6", "#111111", "#f06b7a"],
+      "materials": ["uncoated stock", "overprinted type", "bleached photos"],
+      "viewport": "A grayscale photo of the emcee, condensed type overprinted across it, one coral spot color.",
+      "case": "West Coast and loud, so it holds on audience feel, but reading order is earned rather than given, and that hurts the logistics pages teams rely on.",
+      "risk": "Hard to read on a phone in a loud gym.",
+      "html": ".impeccable/mocks/decision/raygun.html",
+      "comp": ".impeccable/mocks/decision/raygun.webp"
+    },
+    {"id": "challenger-map", "kind": "challenger", "catalogId": "wayfinding-cartography-signage-salt-stiffened-treasure-map", "label": "Treasure Map", "verdict": "declined", "lineage": "salt-stiffened vellum treasure maps", "thesis": "Navigation as inference.", "palette": ["#d8c39a", "#4a3020", "#b23a2a"], "materials": ["vellum", "iron-gall ink"], "viewport": "A parchment map of the event.", "risk": "Teams don't want to solve their schedule.", "case": "Not festival and not clear.", "kept": "Venue and travel live on one annotated map."},
+    {"id": "challenger-zine", "kind": "challenger", "catalogId": "hand-drawn-zine-explainer", "label": "Hand-Drawn Zine", "verdict": "declined", "lineage": "marker explainer zines", "thesis": "A friend sketching the format on a napkin.", "palette": ["#f7f0e1", "#111111", "#ffd84a", "#ff7ab6"], "materials": ["marker", "highlighter"], "viewport": "Doodled bracket explainer.", "risk": "Reads small, not festival.", "case": "Clear, but far from big-festival scale.", "kept": "One highlighted must-know line per section."},
+    {"id": "challenger-bench", "kind": "challenger", "catalogId": "operate-a-cutting-bench-select-rail", "label": "Cutting Bench Rail", "verdict": "declined", "lineage": "film cutting bench", "thesis": "Sections strung along a perforated rail.", "palette": ["#0b0b0b", "#ff6a1a", "#ffffff"], "materials": ["film grain", "punched frames"], "viewport": "An orange perforated rail.", "risk": "An editing-room metaphor nobody here shares.", "case": "No link to teams or festivals.", "kept": "Total color commitment."},
+    {"id": "challenger-crane", "kind": "challenger", "catalogId": "paper-folds-pleats-deployable-orizuru-crane-sequence", "label": "Orizuru Sequence", "verdict": "declined", "lineage": "origami fold sequences", "thesis": "One sheet through numbered folds.", "palette": ["#d8372a", "#f4ece0", "#c9a43a", "#1a1a1a"], "materials": ["washi"], "viewport": "A red folding square.", "risk": "Quiet and foreign to the audience.", "case": "Loses on both axes.", "kept": "One strict numbered sequence for the team journey."},
+    {"id": "challenger-cloud", "kind": "challenger", "catalogId": "clouds-storms-auroras-iridescent-cloud-edge", "label": "Iridescent Cloud", "verdict": "declined", "lineage": "cloud iridescence", "thesis": "Color only at the edges.", "palette": ["#ffffff", "#5b6470", "#9fe3c9", "#e9a3c0"], "materials": ["white space", "hairline spectra"], "viewport": "White field, thin color fringe.", "risk": "The opposite of festival.", "case": "Too quiet.", "kept": "Reading areas stay calm while color lives at the edges."}
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code"},
+  "canon": true,
+  "canonCard": {
+    "kind": "canon", "label": "The category standard",
+    "thesis": "A clean robotics-event site: hero photo, date, apply button, info cards.",
+    "palette": ["#ffffff", "#0f172a", "#2bb5e3"],
+    "materials": ["clean grid", "event photography"],
+    "viewport": "Full-bleed field photo, name and date, Apply and Schedule buttons, a row of feature cards below.",
+    "risk": "Looks like every other FTC event site; not festival.",
+    "comp": ".impeccable/mocks/decision/canon.webp"
+  },
+  "steer": true
+}

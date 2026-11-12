@@ -87,7 +87,7 @@ addEventListener("resize", markLineStarts);
 const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 if (!still && "IntersectionObserver" in window) {
   const targets = document.querySelectorAll(
-    ".about__intro, .gallery, .facts, .road__head, .steps li, .ask > *, .cards li, .block, .photo, .lineup, .teamgrid li"
+    ".about__intro, .gallery, .backers, .road__head, .steps li, .ask > *, .cards li, .block, .photo, .lineup, .teamgrid li"
   );
   const io = new IntersectionObserver(
     (entries) => {

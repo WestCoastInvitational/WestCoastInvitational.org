@@ -4,8 +4,8 @@
 [data-tone="dusk-2"] { --bg: var(--dusk-2); --fg: var(--paper); --soft: var(--on-dusk-soft); --rule: rgba(255, 244, 230, .16); --accent: var(--sun); --flag: var(--coral); }
 [data-tone="paper"] { --bg: var(--paper); --fg: var(--ink); --soft: var(--ink-soft); --rule: rgba(18, 24, 51, .18); --accent: #b23a52; --flag: #b23a52; }
 [data-tone="sky"] { --bg: var(--sky); --fg: var(--ink); --soft: #10263f; --rule: rgba(18, 24, 51, .28); --accent: var(--dusk); --flag: var(--dusk); }
-[data-tone="coral"] { --bg: var(--coral); --fg: var(--ink); --soft: #2a1430; --rule: rgba(18, 24, 51, .28); --accent: var(--dusk); --flag: var(--dusk); }
-[data-tone="sun"] { --bg: var(--sun); --fg: var(--ink); --soft: #3a2415; --rule: rgba(18, 24, 51, .28); --accent: var(--dusk); --flag: var(--dusk); }
+[data-tone="ocean"] { --bg: var(--ocean); --fg: var(--paper); --soft: #d3dcf2; --rule: rgba(255, 244, 230, .2); --accent: var(--sky); --flag: var(--sun); }
+[data-tone="white"] { --bg: #fff; --fg: var(--ink); --soft: var(--ink-soft); --rule: rgba(18, 24, 51, .14); --accent: var(--coral); --flag: #b23a52; }
 
 /* ---------- page header ---------- */
 .subhead {
@@ -34,7 +34,7 @@
 .crumbs { width: fit-content; }
 
 /* ---------- layout ---------- */
-.sub { padding: clamp(3rem, 7vw, 6rem) var(--gutter) var(--section); }
+.sub { padding: var(--section-top) var(--gutter) var(--section); }
 .sub__grid { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 3rem clamp(3rem, 7vw, 7rem); align-items: start; }
 .sub__grid--solo { grid-template-columns: minmax(0, 1fr); }
 .sub__side { position: sticky; top: 6rem; }
@@ -47,7 +47,7 @@
 .sub__side li a { display: block; padding: .6rem 0; color: var(--fg); text-decoration: none; font-weight: 600; }
 .sub__side li a:hover { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .25em; }
 .sub__side li a[aria-current] { font-weight: 900; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .25em; }
-.sub__main { display: grid; gap: clamp(2.5rem, 5vw, 4rem); max-width: 56rem; min-width: 0; }
+.sub__main { display: grid; gap: clamp(2rem, 3.5vw, 2.75rem); max-width: 56rem; min-width: 0; }
 .sub__grid--solo .sub__main { max-width: none; }
 
 /* ---------- content blocks ---------- */
@@ -139,8 +139,8 @@
 .lineup a { display: inline-flex; align-items: center; min-height: 24px; color: inherit; text-decoration: none; text-decoration-thickness: .08em; text-underline-offset: .12em; }
 .lineup a:hover { text-decoration: underline; }
 .lineup .t1 { font-size: clamp(2.4rem, 7vw, 6rem); }
-.lineup .t2 { font-size: clamp(1.6rem, 4vw, 3.4rem); color: var(--dusk-2); }
-.lineup .t3 { font-size: clamp(1.15rem, 2.4vw, 2rem); color: #3a1f3a; }
+.lineup .t2 { font-size: clamp(1.6rem, 4vw, 3.4rem); color: var(--accent); }
+.lineup .t3 { font-size: clamp(1.15rem, 2.4vw, 2rem); color: var(--soft); }
 .lineup__note { text-align: center; font-weight: 700; }
 
 /* ---------- meet the teams ---------- */
@@ -179,3 +179,15 @@
   .lineup .t1 { font-size: min(2.4rem, 9vw); }
   .lineup .t2 { font-size: min(1.6rem, 6.2vw); }
 }
+
+/* ---------- sponsors ---------- */
+.sponsortier { display: grid; justify-items: center; gap: 1.5rem; text-align: center; padding-bottom: clamp(2rem, 3.5vw, 2.75rem); border-bottom: 1px solid var(--rule); }
+.sponsortier h2 { font-weight: 900; font-variation-settings: "wdth" 120; text-transform: uppercase; font-size: clamp(1.5rem, 2.6vw, 2.25rem); line-height: 1.05; }
+.sponsortier ul { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem 3.5rem; }
+.sponsortier a { display: block; color: var(--fg); font-weight: 800; }
+.sponsortier img { display: block; width: auto; height: var(--logo-h, 4.5rem); max-width: min(22rem, 80vw); }
+.sponsortier--presenting { --logo-h: 7rem; }
+.sponsortier .soon { color: var(--flag); font-weight: 700; }
+.sponsorcta { display: grid; justify-items: center; gap: 1rem; text-align: center; }
+.sponsorcta h2 { font-weight: 900; font-variation-settings: "wdth" 120; text-transform: uppercase; font-size: clamp(1.5rem, 2.6vw, 2.25rem); line-height: 1.05; }
+.sponsorcta p { color: var(--soft); max-width: 46ch; }

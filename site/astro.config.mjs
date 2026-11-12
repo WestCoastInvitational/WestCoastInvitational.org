@@ -5,4 +5,5 @@ export default defineConfig({
   site: "https://www.westcoastinvitational.org",
   base: process.env.BASE_PATH || "/",
   build: { format: "directory" },
+  devToolbar: { enabled: false }, // it floats over the page and blocks hovering on localhost
 });

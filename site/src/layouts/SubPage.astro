@@ -3,13 +3,15 @@ import "../styles/page.css";
 import Base from "./Base.astro";
 import Rings from "../components/Rings.astro";
 import Arrow from "../components/Arrow.astro";
-import { findPage } from "../data/nav";
+import { findPage, type Tone } from "../data/nav";
 import { url, sitePath } from "../lib/url";
 
 interface Props {
   lede?: string;
+  /** Overrides the section color for this one page. */
+  tone?: Tone;
 }
-const { lede } = Astro.props;
+const { lede, tone } = Astro.props;
 const here = sitePath(Astro.url.pathname);
 const { section, page, isHub, prev, next } = findPage(here);
 const showSide = !isHub && section.pages.length > 0;
@@ -31,7 +33,7 @@ const longestWord = Math.max(...page.title.split(/\s+/).map((word) => word.lengt
     <p class="lede subhead__lede">{description}</p>
   </header>
 
-  <div class="sub" data-tone={section.tone}>
+  <div class="sub" data-tone={tone ?? section.tone}>
     <div class:list={["sub__grid", { "sub__grid--solo": !showSide }]}>
       {showSide && (
         <aside class="sub__side">

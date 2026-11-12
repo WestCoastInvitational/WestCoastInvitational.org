@@ -1,26 +1,37 @@
 ---
 import SubPage from "../../layouts/SubPage.astro";
-import Cards from "../../components/Cards.astro";
-import Soon from "../../components/Soon.astro";
-import { presentingSponsors, eventSponsors } from "../../data/sponsors";
+import { presentingSponsors, eventSponsors, type Sponsor } from "../../data/sponsors";
+import { links } from "../../data/links";
+import { url } from "../../lib/url";
 
-const groups = [
-  { id: "presenting" as const, title: "Presenting sponsor", list: presentingSponsors },
-  { id: "eventSponsors" as const, title: "Event sponsors", list: eventSponsors },
+const tiers: { id: string; title: string; list: Sponsor[] }[] = [
+  { id: "presenting", title: "Presenting sponsor", list: presentingSponsors },
+  { id: "event", title: "Event sponsors", list: eventSponsors },
 ];
+const mail = `mailto:${links.email}?subject=Sponsoring%20WCI%20'27`;
 ---
-<SubPage>
-  <div class="soonlist">
-    {groups.map((group) =>
-      group.list.length ? (
-        <section class="soonitem">
-          <h3>{group.title}</h3>
-          <ul>{group.list.map((s) => <li>{s.url ? <a class="link" href={s.url}>{s.name}</a> : s.name}</li>)}</ul>
-        </section>
+<SubPage tone="white">
+  {tiers.map((tier) => (
+    <section class:list={["sponsortier", `sponsortier--${tier.id}`]}>
+      <h2>{tier.title}</h2>
+      {tier.list.length ? (
+        <ul>
+          {tier.list.map((s) => {
+            const mark = s.logo ? <img src={url(s.logo)} alt={s.name} /> : s.name;
+            return <li>{s.url ? <a href={s.url} target="_blank" rel="noopener">{mark}</a> : mark}</li>;
+          })}
+        </ul>
       ) : (
-        <Soon id={group.id} />
-      )
-    )}
-  </div>
-  <Cards />
+        <p class="soon">Announcing soon</p>
+      )}
+    </section>
+  ))}
+  <section class="sponsorcta">
+    <h2>Become a sponsor</h2>
+    <p>Want your name in front of every team at WCI '27? Email the WCI team to get started.</p>
+    <div class="actions">
+      <a class="btn btn--dusk" href={mail}>Email us</a>
+      <a class="link" href={url("/sponsors/become")}>Sponsorship details</a>
+    </div>
+  </section>
 </SubPage>

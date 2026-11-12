@@ -3,6 +3,7 @@ import { getImage } from "astro:assets";
 import { galleryRows, galleryImage } from "../data/gallery";
 
 const FULL_WIDTH = 1600;
+const LOOP_SECONDS = [120, -85, 150]; // time for one full loop per row; negative scrolls the other way
 
 const rows = await Promise.all(
   galleryRows.map((row) =>
@@ -20,7 +21,7 @@ const rows = await Promise.all(
 ---
 <div class="gallery" role="group" aria-label="Photos from past WCI events">
   {rows.map((row, r) => (
-    <div class={`gallery__row gallery__row--${r + 1}`}>
+    <div class={`gallery__row gallery__row--${r + 1}`} data-loop={LOOP_SECONDS[r]}>
       <div class="gallery__track">
         {[0, 1].map((copy) => {
           // The second copy only exists to make the loop seamless.
@@ -47,10 +48,6 @@ const rows = await Promise.all(
       </div>
     </div>
   ))}
-  <button class="gallery__pause" type="button" aria-pressed="false" aria-label="Pause scrolling photos">
-    <svg class="bars" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" /></svg>
-    <svg class="play" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor" /></svg>
-  </button>
 </div>
 
 <dialog class="lightbox" aria-label="Expanded photo">

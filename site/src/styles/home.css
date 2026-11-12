@@ -77,26 +77,25 @@
 .sea.is-paused .marquee__pause .bars { display: none; }
 
 /* ---------- about ---------- */
-.about { padding: var(--section) var(--gutter); display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(3rem, 6vw, 5rem); }
+.about { padding: var(--section-top) var(--gutter) var(--section); display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(3rem, 6vw, 5rem); }
 .about__intro { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2rem 4rem; align-items: end; }
 /* "WASHINGTON'S" is the longest word; keep it inside a phone screen */
+.about__side { display: grid; gap: clamp(1.25rem, 2.5vw, 2rem); justify-items: start; }
+.about__logo { width: clamp(15rem, 25vw, 22rem); height: auto; }
 .about__intro .display { font-size: min(clamp(2.6rem, 6.4vw, 6rem), (100vw - 2 * var(--gutter)) / 10.5); }
 /* three rows of different heights, drifting at different speeds */
 .gallery {
   --gap: clamp(.5rem, .9vw, .85rem);
-  position: relative;
   display: grid; gap: var(--gap);
   margin-inline: calc(var(--gutter) * -1);
 }
 .gallery__row { overflow: hidden; }
-.gallery__row--1 { height: clamp(11rem, 24vw, 24rem); --speed: 120s; }
-.gallery__row--2 { height: clamp(8rem, 15vw, 15rem); --speed: 85s; }
-.gallery__row--3 { height: clamp(9.5rem, 19vw, 19rem); --speed: 150s; }
-.gallery__track { display: flex; width: max-content; height: 100%; animation: gallery var(--speed) linear infinite; }
-.gallery__row--2 .gallery__track { animation-direction: reverse; }
+.gallery__row--1 { height: clamp(11rem, 24vw, 24rem); }
+.gallery__row--2 { height: clamp(8rem, 15vw, 15rem); }
+.gallery__row--3 { height: clamp(9.5rem, 19vw, 19rem); }
+/* moved by scripts/gallery.ts */
+.gallery__track { display: flex; width: max-content; height: 100%; will-change: transform; }
 .gallery__half { display: flex; flex: none; gap: var(--gap); padding-right: var(--gap); height: 100%; }
-@keyframes gallery { to { transform: translateX(-50%); } }
-/* stopping and starting is eased in scripts/gallery.ts */
 .gallery__photo {
   position: relative; display: block; flex: none; height: 100%; padding: 0; border: 0;
   background: none; cursor: zoom-in;
@@ -111,15 +110,6 @@
 @media (hover: hover) {
   .gallery__photo:hover img { scale: 1; }
 }
-.gallery__pause {
-  position: absolute; right: var(--gutter); bottom: .75rem;
-  width: 2.75rem; height: 2.75rem; border-radius: 50%; border: 0;
-  background: var(--dusk); color: var(--paper); cursor: pointer;
-  display: grid; place-items: center;
-}
-.gallery__pause .play { display: none; }
-.gallery.is-paused .gallery__pause .play { display: block; }
-.gallery.is-paused .gallery__pause .bars { display: none; }
 
 /* ---------- expanded photo ---------- */
 .lightbox {
@@ -143,18 +133,36 @@ html:has(.lightbox[open]) { overflow: hidden; }
 ::view-transition-group(gallery-photo) { animation-duration: .5s; animation-timing-function: var(--ease); }
 
 @media (prefers-reduced-motion: reduce) {
-  .gallery__track { animation: none; }
+  .gallery__track { will-change: auto; }
   .gallery__row { overflow-x: auto; }
   .gallery__half + .gallery__half { display: none; }
-  .gallery__pause { display: none; }
   .gallery__photo img { transition: none; }
 }
-.facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem; border-top: 2px solid var(--dusk-2); padding-top: 2rem; }
-.facts dt { font-weight: 900; font-variation-settings: "wdth" 125; text-transform: uppercase; color: var(--sun); font-size: 1.05rem; margin-bottom: .5rem; }
-.facts dd { color: var(--on-dusk-soft); font-size: 1rem; }
+/* ---------- sponsors ---------- */
+.backers { display: grid; gap: 1.5rem; border-top: 2px solid var(--dusk-2); padding-top: 2rem; }
+.backers__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem 2rem; }
+.backers__head h2 {
+  font-weight: 900; font-variation-settings: "wdth" 125; text-transform: uppercase;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem); line-height: 1.05;
+}
+/* logos are made for light backgrounds, so they sit on paper tiles */
+.backers__list { display: flex; flex-wrap: wrap; gap: clamp(.5rem, .9vw, .85rem); }
+.backers__list li { flex: 1 1 14rem; max-width: 22rem; min-height: 7.5rem; }
+.backers__list li > a, .backers__list li > span {
+  height: 100%; display: grid; place-items: center; padding: 1.5rem 2rem;
+  background: var(--paper); color: var(--ink); border-radius: 14px; text-decoration: none; font-weight: 800;
+  transition: transform .4s var(--ease), color .2s, box-shadow .2s;
+}
+.backers__list li > a:hover { transform: translateY(-3px); }
+.backers__list img { width: auto; height: 3.25rem; max-width: 100%; }
+.backers__list .backers__open a {
+  background: none; color: var(--on-dusk-soft);
+  box-shadow: inset 0 0 0 2px var(--dusk-2); font-variation-settings: "wdth" 110;
+}
+.backers__list .backers__open a:hover { color: var(--sun); box-shadow: inset 0 0 0 2px var(--sun); }
 
 /* ---------- road (paper) ---------- */
-.road { background: var(--paper); color: var(--ink); padding: var(--section) var(--gutter); }
+.road { background: var(--paper); color: var(--ink); padding: var(--section-top) var(--gutter) var(--section); }
 .road__head { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem 4rem; align-items: end; margin-bottom: clamp(3rem, 6vw, 5rem); }
 .road__must { font-size: clamp(1.1rem, 1.5vw, 1.3rem); color: var(--ink-soft); max-width: 40ch; }
 .road__must mark { background: linear-gradient(transparent 55%, rgba(255, 157, 77, .55) 55%); color: var(--ink); font-weight: 700; }
@@ -179,11 +187,12 @@ html:has(.lightbox[open]) { overflow: hidden; }
 
 /* ---------- questions ---------- */
 .ask {
-  padding: var(--section) var(--gutter) calc(var(--section) * .6);
+  padding: var(--section-top) var(--gutter) clamp(1rem, 2vw, 2rem);
   display: grid; grid-template-columns: 1fr 1.5fr; gap: 2.5rem 5rem; align-items: start;
 }
-.ask__intro p { margin-top: 1.25rem; }
-.ask__intro .link { display: inline-block; margin-top: 1.5rem; }
+.ask__row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 1.25rem; }
+.ask__row .lede { flex: 1 1 18rem; }
+.ask__row .btn { flex: none; }
 .ask__list { border-top: 2px solid var(--dusk-2); }
 .ask__list li { border-bottom: 2px solid var(--dusk-2); display: flex; justify-content: space-between; align-items: center; }
 .ask__list a, .ask__list li > span {
@@ -192,8 +201,6 @@ html:has(.lightbox[open]) { overflow: hidden; }
 }
 .ask__list a { color: var(--paper); text-decoration: none; overflow-wrap: anywhere; transition: color .2s, padding .4s var(--ease); }
 .ask__list a:hover { color: var(--sun); padding-left: .4rem; }
-/* the address is one long word; narrower letters keep it on one line */
-.ask__list a[href^="mailto"] { font-size: clamp(1.05rem, 1.35vw, 1.2rem); font-variation-settings: "wdth" 88; }
 .ask__list li > span { color: var(--on-dusk-soft); }
 .ask__list em { font-style: normal; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--coral); }
 .ask__list svg { flex: none; }
@@ -223,7 +230,6 @@ html:has(.lightbox[open]) { overflow: hidden; }
   .sunset { right: auto; left: calc(var(--cx, 70%) - var(--size) / 2); }
 }
 @media (max-width: 1080px) {
-  .facts { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 900px) {
@@ -234,9 +240,8 @@ html:has(.lightbox[open]) { overflow: hidden; }
   .hero__actions { margin-top: 1.75rem; gap: .6rem; }
   .hero__actions .btn { padding: .8rem 1rem; font-size: .95rem; gap: .4rem; }
   .hero__actions .btn svg { width: 18px; height: 18px; }
-  .facts, .steps { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
   .steps li { padding-right: 0; }
-  .ask__list a[href^="mailto"] { font-size: min(1.05rem, 4.1vw); font-variation-settings: "wdth" 88; }
   .countdown b { font-size: 2rem; }
 }
 /* short phones (iPhone SE and similar): tighten so the marquee still shows on the first screen */
@@ -246,4 +251,12 @@ html:has(.lightbox[open]) { overflow: hidden; }
   .countdown { margin-top: 1rem; }
   .hero__actions { margin-top: 1.2rem; }
   .marquee__track { font-size: 1.2rem; }
+}
+
+/* home footer: a lower sunrise, so it doesn't open a big gap under Questions */
+footer.foot--home { --dome: clamp(7rem, 26vw, 19rem); --headroom: clamp(1.5rem, 3vw, 2.5rem); }
+/* wide screens: the sunrise sits under the Questions copy, filling the space left of the contact list */
+@media (min-width: 1000px) {
+  footer.foot--home { margin-top: calc(-1 * clamp(8rem, 11vw, 13rem)); }
+  footer.foot--home .foot__sunrise svg { left: var(--gutter); translate: 0 0; }
 }

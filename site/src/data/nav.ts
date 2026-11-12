@@ -6,7 +6,7 @@ export interface NavPage {
   blurb: string;
 }
 
-export type Tone = "dusk" | "dusk-2" | "paper" | "sky" | "coral" | "sun";
+export type Tone = "dusk" | "dusk-2" | "ocean" | "sky" | "paper" | "white";
 
 export interface NavSection extends NavPage {
   id: string;
@@ -69,7 +69,7 @@ export const sections: NavSection[] = [
     title: "Sponsors",
     path: "/sponsors",
     blurb: "The partners behind WCI '27.",
-    tone: "sun",
+    tone: "white",
     pages: [{ title: "Become a Sponsor", path: "/sponsors/become", blurb: "Put your name in front of every team." }],
   },
   {
@@ -93,7 +93,7 @@ export const sections: NavSection[] = [
     title: "Extras",
     path: "/extras",
     blurb: "More than matches.",
-    tone: "coral",
+    tone: "ocean",
     pages: extras.map((e) => ({
       title: e.title,
       path: `/extras/${e.slug}`,
